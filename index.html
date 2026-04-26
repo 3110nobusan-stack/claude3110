@@ -3,28 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アラームアプリ</title>
+  <title>図書館を探すアプリ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>アラーム</h1>
-
-    <div class="clock" id="clock">00:00:00</div>
-
-    <div class="alarm-set">
-      <h2>アラーム設定</h2>
-      <input type="time" id="alarmTime">
-      <button id="setBtn">セット</button>
+  <header>
+    <div class="header-inner">
+      <span class="header-icon">📚</span>
+      <div>
+        <h1>図書館を探すアプリ</h1>
+        <p class="header-sub">カーリルAPIで全国の図書館・蔵書を検索</p>
+      </div>
     </div>
+  </header>
 
-    <div class="alarm-list" id="alarmList"></div>
+  <main>
+    <!-- ① 図書館検索 -->
+    <section class="card">
+      <h2>図書館を探す</h2>
 
-    <div class="ringing hidden" id="ringing">
-      <p>アラームが鳴っています！</p>
-      <button id="stopBtn">止める</button>
-    </div>
-  </div>
+      <div class="search-block">
+        <label class="block-label">都道府県から探す</label>
+        <div class="row">
+          <select id="prefSelect">
+            <option value="">都道府県を選択</option>
+          </select>
+          <button id="searchByPref" class="btn-primary">検索</button>
+        </div>
+      </div>
+
+      <div class="or-divider"><span>または</span></div>
+
+      <div class="search-block">
+        <label class="block-label">現在地から探す</label>
+        <button id="searchByLocation" class="btn-location">
+          <span class="btn-icon">📍</span> 現在地を使う
+        </button>
+      </div>
+
+      <div id="libraryStatus" class="status-msg hidden"></div>
+      <div id="libraryResults" class="results-list hidden"></div>
+    </section>
+
+    <!-- ② 蔵書検索 -->
+    <section class="card hidden" id="bookSection">
+      <h2>蔵書を調べる</h2>
+      <p class="target-lib">対象図書館: <strong id="selectedLibName">-</strong></p>
+
+      <div class="row">
+        <input type="text" id="isbnInput" placeholder="ISBN（例: 9784101092058）" maxlength="17">
+        <button id="searchBook" class="btn-primary">調べる</button>
+      </div>
+      <p class="hint">本の裏のバーコード下にある13桁の数字を入力してください</p>
+
+      <div id="bookStatus" class="status-msg hidden"></div>
+      <div id="bookResults" class="results-list hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by <a href="https://calil.jp/" target="_blank">カーリル図書館API</a></p>
+  </footer>
 
   <script src="app.js"></script>
 </body>
