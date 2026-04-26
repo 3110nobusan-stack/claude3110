@@ -3,27 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アラームアプリ</title>
+  <title>ランダムポケモン図鑑</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>アラーム</h1>
+    <h1>ランダムポケモン図鑑</h1>
 
-    <div class="clock" id="clock">00:00:00</div>
+    <div class="card" id="card">
+      <div class="loading" id="loading">
+        <div class="pokeball">
+          <div class="pokeball-top"></div>
+          <div class="pokeball-center"></div>
+          <div class="pokeball-bottom"></div>
+        </div>
+        <p>読み込み中...</p>
+      </div>
 
-    <div class="alarm-set">
-      <h2>アラーム設定</h2>
-      <input type="time" id="alarmTime">
-      <button id="setBtn">セット</button>
+      <div class="pokemon-info hidden" id="pokemonInfo">
+        <div class="pokemon-header">
+          <span class="pokemon-id" id="pokemonId">#001</span>
+          <div class="types" id="types"></div>
+        </div>
+
+        <div class="sprite-wrapper">
+          <img id="sprite" src="" alt="ポケモン画像">
+        </div>
+
+        <h2 class="pokemon-name" id="pokemonName">ふしぎだね</h2>
+
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-label">高さ</span>
+            <span class="detail-value" id="height">—</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">重さ</span>
+            <span class="detail-value" id="weight">—</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>とくせい</h3>
+          <div class="abilities" id="abilities"></div>
+        </div>
+
+        <div class="section">
+          <h3>基本ステータス</h3>
+          <div class="stats" id="stats"></div>
+        </div>
+      </div>
+
+      <div class="error hidden" id="error">
+        <p>データの取得に失敗しました。</p>
+      </div>
     </div>
 
-    <div class="alarm-list" id="alarmList"></div>
-
-    <div class="ringing hidden" id="ringing">
-      <p>アラームが鳴っています！</p>
-      <button id="stopBtn">止める</button>
-    </div>
+    <button class="random-btn" id="randomBtn">
+      <span class="btn-icon">&#9654;</span> 次のポケモン
+    </button>
   </div>
 
   <script src="app.js"></script>
