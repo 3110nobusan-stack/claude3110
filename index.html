@@ -21,15 +21,24 @@
       </div>
 
       <div class="pokemon-card hidden" id="card1"></div>
-
       <div class="vs-badge" id="vsBadge">VS</div>
-
       <div class="pokemon-card hidden" id="card2"></div>
     </div>
 
-    <button class="battle-btn" id="battleBtn">
-      &#9654; 新しいバトル
-    </button>
+    <button class="battle-btn" id="battleBtn">&#9654; 新しいバトル</button>
+  </div>
+
+  <!-- Evolution Tree Modal -->
+  <div class="modal-overlay hidden" id="evoModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="evoModalTitle">進化ツリー</h2>
+        <button class="modal-close" id="evoModalClose">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <div id="evoTree"></div>
+      </div>
+    </div>
   </div>
 
   <script src="app.js"></script>
