@@ -3,64 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ランダムポケモン図鑑</title>
+  <title>ポケモンバトル図鑑</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>ランダムポケモン図鑑</h1>
+    <h1>ポケモンバトル図鑑</h1>
 
-    <div class="card" id="card">
-      <div class="loading" id="loading">
+    <div class="battle-arena" id="battleArena">
+      <div class="loading-overlay hidden" id="loading">
         <div class="pokeball">
           <div class="pokeball-top"></div>
           <div class="pokeball-center"></div>
           <div class="pokeball-bottom"></div>
         </div>
-        <p>読み込み中...</p>
+        <p>対戦相手を選出中...</p>
       </div>
 
-      <div class="pokemon-info hidden" id="pokemonInfo">
-        <div class="pokemon-header">
-          <span class="pokemon-id" id="pokemonId">#001</span>
-          <div class="types" id="types"></div>
-        </div>
+      <div class="pokemon-card hidden" id="card1"></div>
 
-        <div class="sprite-wrapper">
-          <img id="sprite" src="" alt="ポケモン画像">
-        </div>
+      <div class="vs-badge" id="vsBadge">VS</div>
 
-        <h2 class="pokemon-name" id="pokemonName">ふしぎだね</h2>
-
-        <div class="details-grid">
-          <div class="detail-item">
-            <span class="detail-label">高さ</span>
-            <span class="detail-value" id="height">—</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">重さ</span>
-            <span class="detail-value" id="weight">—</span>
-          </div>
-        </div>
-
-        <div class="section">
-          <h3>とくせい</h3>
-          <div class="abilities" id="abilities"></div>
-        </div>
-
-        <div class="section">
-          <h3>基本ステータス</h3>
-          <div class="stats" id="stats"></div>
-        </div>
-      </div>
-
-      <div class="error hidden" id="error">
-        <p>データの取得に失敗しました。</p>
-      </div>
+      <div class="pokemon-card hidden" id="card2"></div>
     </div>
 
-    <button class="random-btn" id="randomBtn">
-      <span class="btn-icon">&#9654;</span> 次のポケモン
+    <button class="battle-btn" id="battleBtn">
+      &#9654; 新しいバトル
     </button>
   </div>
 
